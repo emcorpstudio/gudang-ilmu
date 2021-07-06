@@ -1,9 +1,8 @@
 package emcorp.studio.sinergienerginegeri;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatCheckBox;
-import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,7 +17,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
@@ -26,12 +24,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -42,33 +38,32 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import emcorp.studio.sinergienerginegeri.adapter.AdapterListDonation;
-import emcorp.studio.sinergienerginegeri.model.Donation;
+import emcorp.studio.sinergienerginegeri.adapter.AdapterGridShopProductCard;
+import emcorp.studio.sinergienerginegeri.model.Produk;
 import emcorp.studio.sinergienerginegeri.utils.Constant;
 import emcorp.studio.sinergienerginegeri.utils.SharedPrefManager;
 import emcorp.studio.sinergienerginegeri.utils.Tools;
+import emcorp.studio.sinergienerginegeri.widget.SpacingItemDecoration;
 
-public class DonasiActivity extends AppCompatActivity {
+public class ProductActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
-    private List<Donation> items = new ArrayList<Donation>();
+    private List<Produk> items = new ArrayList<Produk>();
     private RecyclerView recyclerView;
-    private AdapterListDonation mAdapter;
+    private AdapterGridShopProductCard mAdapter;
     private FloatingActionButton btn_add;
     private Bitmap bitmapFoto = null;
-    ImageView imgDondasi;
+    ImageView imgProduk;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +75,7 @@ public class DonasiActivity extends AppCompatActivity {
     private void initToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Donasi");
+        getSupportActionBar().setTitle("Produk");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Tools.setSystemBarColor(this);
     }
@@ -107,7 +102,7 @@ public class DonasiActivity extends AppCompatActivity {
                             }else{
                                 for (int i=0; i<jsonArray.length(); i++) {
                                     JSONObject isiArray = jsonArray.getJSONObject(i);
-                                    String id_donasi = isiArray.getString("id_donasi");
+                                    String id_produk = isiArray.getString("id_produk");
                                     String id_user = isiArray.getString("id_user");
                                     String judul = isiArray.getString("judul");
                                     String deskripsi = isiArray.getString("deskripsi");
@@ -115,18 +110,20 @@ public class DonasiActivity extends AppCompatActivity {
                                     String status = isiArray.getString("status");
                                     String created_at = isiArray.getString("created_at");
                                     String full_name = isiArray.getString("full_name");
+                                    String harga = isiArray.getString("harga");
 
-                                    Donation donation = new Donation();
-                                    donation.id_donasi = id_donasi;
-                                    donation.id_user = id_user;
-                                    donation.judul = judul;
-                                    donation.deskripsi = deskripsi;
-                                    donation.foto = foto;
-                                    donation.status = status;
-                                    donation.created_at = created_at;
-                                    donation.full_name = full_name;
+                                    Produk produk = new Produk();
+                                    produk.id_produk = id_produk;
+                                    produk.id_user = id_user;
+                                    produk.judul = judul;
+                                    produk.deskripsi = deskripsi;
+                                    produk.foto = foto;
+                                    produk.status = status;
+                                    produk.created_at = created_at;
+                                    produk.full_name = full_name;
+                                    produk.harga = harga;
 
-                                    items.add(donation);
+                                    items.add(produk);
                                 }
                                 initComponent();
                             }
@@ -150,7 +147,7 @@ public class DonasiActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("function", Constant.FUNCTION_LIST_DONASI);
+                params.put("function", Constant.FUNCTION_LIST_PRODUK);
                 params.put("key", Constant.KEY);
                 params.put("id_user", "");
                 return params;
@@ -163,20 +160,21 @@ public class DonasiActivity extends AppCompatActivity {
     private void initComponent() {
         recyclerView = findViewById(R.id.recyclerView);
         btn_add = findViewById(R.id.fab_add);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        recyclerView.addItemDecoration(new SpacingItemDecoration(2, Tools.dpToPx(this, 8), true));
         recyclerView.setHasFixedSize(true);
         recyclerView.setNestedScrollingEnabled(false);
 
         //set data and list adapter
-        mAdapter = new AdapterListDonation(this, items, R.layout.item_donation_horizontal);
+        mAdapter = new AdapterGridShopProductCard(this, items);
         recyclerView.setAdapter(mAdapter);
         // on item list clicked
-        mAdapter.setOnItemClickListener(new AdapterListDonation.OnItemClickListener() {
+        mAdapter.setOnItemClickListener(new AdapterGridShopProductCard.OnItemClickListener() {
             @Override
-            public void onItemClick(View view, Donation obj, int position) {
-                Intent intent = new Intent(getApplicationContext(), DetailDonasiActivity.class);
-                intent.putExtra("donation", obj);
-                intent.putExtra("from", "donasi");
+            public void onItemClick(View view, Produk obj, int pos) {
+                Intent intent = new Intent(getApplicationContext(), DetailProductActivity.class);
+                intent.putExtra("produk", obj);
+                intent.putExtra("from", "produk");
                 startActivity(intent);
             }
         });
@@ -203,12 +201,12 @@ public class DonasiActivity extends AppCompatActivity {
 
         final EditText edtJudul = (EditText) dialog.findViewById(R.id.edtJudul);
         final EditText edtDeskripsi = (EditText) dialog.findViewById(R.id.edtDeskripsi);
-        imgDondasi = (ImageView) dialog.findViewById(R.id.imgDonasi);
+        imgProduk = (ImageView) dialog.findViewById(R.id.imgDonasi);
 
-        imgDondasi.setOnClickListener(new View.OnClickListener() {
+        imgProduk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selectImage(DonasiActivity.this);
+                selectImage(ProductActivity.this);
             }
         });
 
@@ -317,7 +315,7 @@ public class DonasiActivity extends AppCompatActivity {
                     if (resultCode == RESULT_OK && data != null) {
                         Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
                         bitmapFoto = selectedImage;
-                        imgDondasi.setImageBitmap(selectedImage);
+                        imgProduk.setImageBitmap(selectedImage);
                     }
 
                     break;
@@ -333,7 +331,7 @@ public class DonasiActivity extends AppCompatActivity {
 
                                 int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                                 String picturePath = cursor.getString(columnIndex);
-                                imgDondasi.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+                                imgProduk.setImageBitmap(BitmapFactory.decodeFile(picturePath));
                                 bitmapFoto = BitmapFactory.decodeFile(picturePath);
                                 cursor.close();
                                 Log.d("CETAK","UPLAOD FOTO");
@@ -348,14 +346,14 @@ public class DonasiActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(DonasiActivity.this,HomeActivity.class));
+        startActivity(new Intent(ProductActivity.this,HomeActivity.class));
         finish();
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            startActivity(new Intent(DonasiActivity.this,HomeActivity.class));
+            startActivity(new Intent(ProductActivity.this,HomeActivity.class));
             finish();
         }
         return super.onOptionsItemSelected(item);

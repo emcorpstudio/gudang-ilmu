@@ -191,6 +191,14 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        tvLainProduk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this,ProductActivity.class));
+                finish();
+            }
+        });
+
     }
 
     @Override

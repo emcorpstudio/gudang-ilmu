@@ -9,6 +9,7 @@ public class Constant {
     public static final String KEY = "aplikasi-gudang-ilmu";
     public static final String ROOT_URL = "http://192.168.100.62/project/gudang_ilmu/service/service.php";
     public static final String PICT_DONASI_URL = "http://192.168.100.62/project/gudang_ilmu/file/donasi/";
+    public static final String PICT_PRODUK_URL = "http://192.168.100.62/project/gudang_ilmu/file/produk/";
 
 
     public static final String WA_NUMBER = "6285158886758";
@@ -18,59 +19,9 @@ public class Constant {
     public static final String FUNCTION_TOPUP = "TopUp";
     public static final String FUNCTION_LIST_DONASI = "ListDonasi";
     public static final String FUNCTION_DONASI = "Donasi";
+    public static final String FUNCTION_ADDDONASI = "AddDonasi";
 
-    public static final String FUNCTION_LISTPENGUMUMAN = "ListPengumuman";
-    public static final String FUNCTION_ADDPENGUMUMAN = "AddPengumuman";
-    public static final String FUNCTION_EDITPENGUMUMAN = "EditPengumuman";
-
-    public static final String FUNCTION_LISTPROJECT = "ListProject";
-    public static final String FUNCTION_ADDPROJECT = "AddProject";
-    public static final String FUNCTION_EDITPROJECT = "EditProject";
-
-    public static final String FUNCTION_LISTLAPORAN = "ListLaporan";
-    public static final String FUNCTION_ADDLAPORAN = "AddLaporan";
-    public static final String FUNCTION_EDITLAPORAN = "EditLaporan";
-
-    public static final String FUNCTION_LISTPENGELUARAN = "ListPengeluaran";
-    public static final String FUNCTION_ADDPENGELUARAN = "AddPengeluaran";
-    public static final String FUNCTION_EDITPENGELUARAN = "EditPengeluaran";
-
-    public static final String FUNCTION_LISTTASK = "ListTask";
-    public static final String FUNCTION_ADDTASK = "AddTask";
-    public static final String FUNCTION_EDITTASK = "EditTask";
-
-    public static final String FUNCTION_LISTEMERGENCY = "ListEmergency";
-    public static final String FUNCTION_ADDEMERGENCY = "AddEmergency";
-    public static final String FUNCTION_EDITEMERGENCY = "EditEmergency";
-
-    public static final String FUNCTION_LISTINVOICE = "ListInvoice";
-    public static final String FUNCTION_ADDINVOICE = "AddInvoice";
-    public static final String FUNCTION_EDITINVOICE = "EditInvoice";
-
-    public static final String FUNCTION_LISTIDETAILNVOICE = "ListDetailInvoice";
-    public static final String FUNCTION_ADDDETAILNVOICE = "AddDetailInvoice";
-    public static final String FUNCTION_EDITDETAILNVOICE = "EditDetailInvoice";
-
-    public static final String FUNCTION_LISTIZIN = "ListIzin";
-    public static final String FUNCTION_ADDIZIN = "AddIzin";
-    public static final String FUNCTION_EDITIZIN = "EditIzin";
-
-    public static final String FUNCTION_LISTPRODUK = "ListProduk";
-    public static final String FUNCTION_ADDPRODUK = "AddProduk";
-    public static final String FUNCTION_EDITPRODUK = "EditProduk";
-
-    public static final String FUNCTION_LISTKLIEN = "ListKlien";
-    public static final String FUNCTION_ADDKLIEN = "AddKlien";
-    public static final String FUNCTION_EDITKLIEN = "EditKlien";
-
-    public static final String FUNCTION_ABSENMASUK = "AbsenMasuk";
-    public static final String FUNCTION_ABSENKELUAR = "AbsenKeluar";
-    public static final String FUNCTION_LISTABSENSI = "ListAbsensi";
-
-    public static final String FUNCTION_LISTKARYAWAN = "ListKaryawan";
-
-    public static final String FUNCTION_SOFTDELETE = "SoftDelete";
-    public static final String FUNCTION_UPDATESTATUS = "UpdateStatus";
+    public static final String FUNCTION_LIST_PRODUK = "ListProduk";
 
     //Folder
     public static final String FOLDER_PROFILE = "profile/";

@@ -696,12 +696,12 @@
                             app:backgroundTint="@color/amber_300"
                             app:fabSize="normal"
                             app:rippleColor="@android:color/white"
-                            app:srcCompat="@drawable/ic_smartphone_call"
+                            app:srcCompat="@drawable/ic_electric_motor"
                             tools:ignore="VectorDrawableCompat" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="HANPDHONE"
+                            android:text="MOTOR"
                             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                             android:gravity="center"/>
                     </LinearLayout>
@@ -719,12 +719,12 @@
                             app:backgroundTint="@color/red_300"
                             app:fabSize="normal"
                             app:rippleColor="@android:color/white"
-                            app:srcCompat="@drawable/ic_laptop"
+                            app:srcCompat="@drawable/ic_cable"
                             tools:ignore="VectorDrawableCompat" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="KOMPUTER"
+                            android:text="KABEL"
                             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                             android:gravity="center"/>
                     </LinearLayout>
@@ -742,12 +742,12 @@
                             app:backgroundTint="@color/cyan_300"
                             app:fabSize="normal"
                             app:rippleColor="@android:color/white"
-                            app:srcCompat="@drawable/ic_fashion"
+                            app:srcCompat="@drawable/ic_light_bulb"
                             tools:ignore="VectorDrawableCompat" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="FASHION"
+                            android:text="LAMPU"
                             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                             android:gravity="center"/>
                     </LinearLayout>
@@ -765,12 +765,12 @@
                             app:backgroundTint="@color/lime_300"
                             app:fabSize="normal"
                             app:rippleColor="@android:color/white"
-                            app:srcCompat="@drawable/ic_chef"
+                            app:srcCompat="@drawable/ic_shield"
                             tools:ignore="VectorDrawableCompat" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="DAPUR"
+                            android:text="SAFETY"
                             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                             android:gravity="center"/>
                     </LinearLayout>
@@ -788,12 +788,12 @@
                             app:backgroundTint="@color/pink_300"
                             app:fabSize="normal"
                             app:rippleColor="@android:color/white"
-                            app:srcCompat="@drawable/ic_makeup"
+                            app:srcCompat="@drawable/ic_home"
                             tools:ignore="VectorDrawableCompat" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="KECANTIKAN"
+                            android:text="RUMAH"
                             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                             android:gravity="center"/>
                     </LinearLayout>

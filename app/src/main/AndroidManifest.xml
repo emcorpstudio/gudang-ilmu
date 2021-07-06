@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="emcorp.studio.sinergienerginegeri">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
-        <activity android:name=".DetailDonasiActivity"></activity>
+        <activity android:name=".DetailProductActivity"></activity>
+        <activity android:name=".ProductActivity" />
+        <activity android:name=".DetailDonasiActivity" />
         <activity android:name=".DonasiActivity" />
         <activity android:name=".TopupActivity" />
         <activity android:name=".HomeActivity" />

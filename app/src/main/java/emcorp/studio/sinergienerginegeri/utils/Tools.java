@@ -39,6 +39,7 @@ import androidx.core.widget.NestedScrollView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
+import com.bumptech.glide.signature.StringSignature;
 import com.google.android.material.bottomappbar.BottomAppBar;
 //import com.material.components.R;
 //import com.material.components.activity.ActivityWebView;
@@ -161,6 +162,7 @@ public class Tools {
             Glide.with(ctx).load(url)
                     .crossFade()
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .signature(new StringSignature(String.valueOf(System.currentTimeMillis())))
                     .into(img);
         } catch (Exception e) {
         }
