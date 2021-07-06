@@ -111,6 +111,7 @@ public class HomeActivity extends AppCompatActivity {
                                     JSONObject isiArray = jsonArray.getJSONObject(i);
                                     saldo = isiArray.getString("saldo");
                                 }
+                                SharedPrefManager.getInstance(getApplicationContext()).setReferences(Constant.PREFERENCES_SALDO,saldo);
                                 initComponent();
                             }
                         } catch (JSONException e) {

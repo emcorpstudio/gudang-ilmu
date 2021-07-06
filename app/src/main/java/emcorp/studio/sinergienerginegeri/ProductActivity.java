@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -230,6 +231,12 @@ public class ProductActivity extends AppCompatActivity {
         dialog.getWindow().setAttributes(lp);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_cart_setting, menu);
+        return true;
+    }
+
     public void AddDonasiProcee(String judul, String deskripsi){
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,
@@ -355,6 +362,10 @@ public class ProductActivity extends AppCompatActivity {
         if (item.getItemId() == android.R.id.home) {
             startActivity(new Intent(ProductActivity.this,HomeActivity.class));
             finish();
+        }else {
+            startActivity(new Intent(ProductActivity.this,CheckoutActivity.class));
+            finish();
+//            Toast.makeText(getApplicationContext(), item.getTitle(), Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }

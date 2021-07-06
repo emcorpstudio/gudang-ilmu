@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
-        <activity android:name=".DetailProductActivity"></activity>
+        <activity android:name=".CheckoutActivity"></activity>
+        <activity android:name=".DetailProductActivity" />
         <activity android:name=".ProductActivity" />
         <activity android:name=".DetailDonasiActivity" />
         <activity android:name=".DonasiActivity" />

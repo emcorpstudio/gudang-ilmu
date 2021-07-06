@@ -51,6 +51,7 @@ public class Constant {
     public static final String PREFERENCES_FOTO = "FOTO";
     public static final String PREFERENCES_STATUS = "STATUS";
     public static final String PREFERENCES_LOGIN = "LOGIN";
+    public static final String PREFERENCES_SALDO = "SALDO";
     public static final String PREFERENCES_PENGELUARAN_MODE = "PENGELUARAN_MODE";
     public static final String PREFERENCES_IZIN_MODE = "IZIN_MODE";
     public static final String PREFERENCES_LAPORAN_MODE = "LAPORAN_MODE";
