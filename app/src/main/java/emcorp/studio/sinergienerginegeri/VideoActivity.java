@@ -64,7 +64,7 @@ public class VideoActivity extends AppCompatActivity {
     private List<Video> items = new ArrayList<Video>();
     private RecyclerView recyclerView;
     private AdapterGridShopVideoCard mAdapter;
-//    private FloatingActionButton btn_add;
+    private FloatingActionButton btn_add;
     private Bitmap bitmapFoto = null;
     ImageView imgProduk;
     @Override
@@ -162,7 +162,7 @@ public class VideoActivity extends AppCompatActivity {
 
     private void initComponent() {
         recyclerView = findViewById(R.id.recyclerView);
-//        btn_add = findViewById(R.id.fab_add);
+        btn_add = findViewById(R.id.fab_add);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
         recyclerView.addItemDecoration(new SpacingItemDecoration(1, Tools.dpToPx(this, 10), true));
         recyclerView.setHasFixedSize(true);
@@ -175,25 +175,25 @@ public class VideoActivity extends AppCompatActivity {
         mAdapter.setOnItemClickListener(new AdapterGridShopVideoCard.OnItemClickListener() {
             @Override
             public void onItemClick(View view, Video obj, int pos) {
-//                Intent intent = new Intent(getApplicationContext(), DetailProductActivity.class);
-//                intent.putExtra("video", obj);
-//                intent.putExtra("from", "video");
-//                startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), DetailVideoActivity.class);
+                intent.putExtra("video", obj);
+                intent.putExtra("from", "video");
+                startActivity(intent);
             }
         });
 
-//        btn_add.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                addDonasi();
-//            }
-//        });
+        btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addDonasi();
+            }
+        });
     }
 
     private void addDonasi() {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
-        dialog.setContentView(R.layout.dialog_produk);
+        dialog.setContentView(R.layout.dialog_video);
         dialog.setCancelable(true);
 
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
@@ -225,7 +225,7 @@ public class VideoActivity extends AppCompatActivity {
         ((Button) dialog.findViewById(R.id.bt_save)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddProdukProcees(edtJudul.getText().toString(),edtDeskripsi.getText().toString(),edtHarga.getText().toString());
+//                AddProdukProcees(edtJudul.getText().toString(),edtDeskripsi.getText().toString(),edtHarga.getText().toString());
                 dialog.dismiss();
             }
         });

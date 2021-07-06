@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
-        <activity android:name=".VideoActivity"></activity>
+        <activity android:name=".DetailVideoActivity"></activity>
+        <activity android:name=".VideoActivity" />
         <activity android:name=".CheckoutActivity" />
         <activity android:name=".DetailProductActivity" />
         <activity android:name=".ProductActivity" />

@@ -20,6 +20,7 @@ public class Constant {
     public static final String FUNCTION_TOPUP = "TopUp";
     public static final String FUNCTION_LIST_DONASI = "ListDonasi";
     public static final String FUNCTION_DONASI = "Donasi";
+    public static final String FUNCTION_DONASIVIDEO = "DonasiVideo";
     public static final String FUNCTION_ADDDONASI = "AddDonasi";
     public static final String FUNCTION_ADDPRODUK = "AddProduk";
 

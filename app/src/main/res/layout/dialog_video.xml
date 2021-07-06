@@ -29,7 +29,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:text="Jual Produk"
+                android:text="Upload Video"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
                 android:textColor="@android:color/white" />
 
@@ -86,19 +86,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Deskripsi Produk"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                    android:textColorHint="@color/grey_40" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/spacing_large" />
-
-                <EditText
-                    android:id="@+id/edtHarga"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Harga Produk"
-                    android:inputType="number"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                     android:textColorHint="@color/grey_40" />
 

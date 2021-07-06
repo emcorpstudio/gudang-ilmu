@@ -7,7 +7,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -58,7 +61,7 @@ public class HomeActivity extends AppCompatActivity {
     private List<Donation> items = new ArrayList<Donation>();
     private String saldo;
     private FloatingActionButton btnElektronik,btnMotor,btnKabel,btnLampu,btnSafety,btnRumah,btnAll;
-    private LinearLayout btnPelajaran,btnBisnis,btnKeluarga,btnSemua;
+    private LinearLayout btnPelajaran,btnBisnis,btnKeluarga,btnSemua, btnAccount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -169,6 +172,7 @@ public class HomeActivity extends AppCompatActivity {
         btnBisnis = findViewById(R.id.btnBisnis);
         btnKeluarga = findViewById(R.id.btnKeluarga);
         btnSemua = findViewById(R.id.btnSemua);
+        btnAccount = findViewById(R.id.btnAccount);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         recyclerView.setNestedScrollingEnabled(false);
@@ -312,7 +316,47 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        btnAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logoutProcess();
+            }
+        });
 
+
+    }
+
+    public void logoutProcess(){
+        androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(HomeActivity.this);
+        builder.setTitle(null);
+        builder.setMessage("Anda yakin ingin logout?");
+
+        String positiveText = getString(android.R.string.ok);
+        builder.setPositiveButton(positiveText,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        SharedPreferences.Editor editor = getSharedPreferences("SinergiEnergiNegeri", Context.MODE_PRIVATE).edit();
+                        editor.clear();
+                        editor.commit();
+                        startActivity(new Intent(HomeActivity.this,LoginActivity.class));
+                        finish();
+                        Toast.makeText(getApplicationContext(),"Logout berhasil", Toast.LENGTH_LONG).show();
+                    }
+                });
+
+        String negativeText = getString(android.R.string.cancel);
+        builder.setNegativeButton(negativeText,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+        androidx.appcompat.app.AlertDialog dialog = builder.create();
+        // display dialog
+        dialog.show();
     }
 
     @Override
