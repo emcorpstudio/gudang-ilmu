@@ -301,6 +301,7 @@
                             android:layout_height="wrap_content"
                             android:background="?attr/selectableItemBackgroundBorderless"
                             android:clickable="true"
+                            android:id="@+id/btnPelajaran"
                             android:orientation="vertical"
                             android:padding="@dimen/spacing_large">
 
@@ -330,7 +331,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/spacing_middle"
-                                android:text="PELAJARAN"
+                                android:text="LEARNING"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
                                 android:textColor="@android:color/white"
                                 app:fontFamily="sans-serif-medium" />
@@ -340,7 +341,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/spacing_medium"
-                                android:text="12 Video"
+                                android:text="2 Video"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
                                 android:textColor="@color/grey_5" />
 
@@ -365,6 +366,7 @@
                             android:layout_height="wrap_content"
                             android:background="?attr/selectableItemBackgroundBorderless"
                             android:clickable="true"
+                            android:id="@+id/btnBisnis"
                             android:orientation="vertical"
                             android:padding="@dimen/spacing_large">
 
@@ -394,7 +396,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/spacing_middle"
-                                android:text="BISNIS"
+                                android:text="GREEN ENERGY"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
                                 android:textColor="@android:color/white"
                                 app:fontFamily="sans-serif-medium" />
@@ -404,7 +406,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/spacing_medium"
-                                android:text="7 Video"
+                                android:text="1 Video"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
                                 android:textColor="@color/grey_5" />
 
@@ -429,6 +431,7 @@
                             android:layout_height="wrap_content"
                             android:background="?attr/selectableItemBackgroundBorderless"
                             android:clickable="true"
+                            android:id="@+id/btnKeluarga"
                             android:orientation="vertical"
                             android:padding="@dimen/spacing_large">
 
@@ -458,7 +461,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/spacing_middle"
-                                android:text="KELUARGA"
+                                android:text="TIPS"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
                                 android:textColor="@android:color/white"
                                 app:fontFamily="sans-serif-medium" />
@@ -486,6 +489,8 @@
                         app:cardBackgroundColor="@color/blue_grey_300"
                         app:cardCornerRadius="4dp"
                         app:cardElevation="0dp"
+                        android:visibility="gone"
+                        android:id="@+id/btnHobi"
                         app:cardUseCompatPadding="false">
 
                         <LinearLayout
@@ -557,6 +562,7 @@
                             android:layout_height="wrap_content"
                             android:background="?attr/selectableItemBackgroundBorderless"
                             android:clickable="true"
+                            android:id="@+id/btnSemua"
                             android:orientation="vertical"
                             android:padding="@dimen/spacing_large">
 
@@ -596,7 +602,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/spacing_medium"
-                                android:text="31 Video"
+                                android:text="6 Video"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
                                 android:textColor="@color/grey_5" />
 
@@ -669,6 +675,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/spacing_large"
                             android:clickable="true"
+                            android:id="@+id/btnElektronik"
                             android:tint="@android:color/white"
                             app:backgroundTint="@color/pink_300"
                             app:fabSize="normal"
@@ -691,6 +698,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/spacing_large"
+                            android:id="@+id/btnMotor"
                             android:clickable="true"
                             android:tint="@android:color/white"
                             app:backgroundTint="@color/amber_300"
@@ -714,6 +722,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/spacing_large"
+                            android:id="@+id/btnKabel"
                             android:clickable="true"
                             android:tint="@android:color/white"
                             app:backgroundTint="@color/red_300"
@@ -737,6 +746,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/spacing_large"
+                            android:id="@+id/btnLampu"
                             android:clickable="true"
                             android:tint="@android:color/white"
                             app:backgroundTint="@color/cyan_300"
@@ -761,6 +771,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/spacing_large"
                             android:clickable="true"
+                            android:id="@+id/btnSafety"
                             android:tint="@android:color/white"
                             app:backgroundTint="@color/lime_300"
                             app:fabSize="normal"
@@ -784,6 +795,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/spacing_large"
                             android:clickable="true"
+                            android:id="@+id/btnRumah"
                             android:tint="@android:color/white"
                             app:backgroundTint="@color/pink_300"
                             app:fabSize="normal"
@@ -807,6 +819,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/spacing_large"
                             android:clickable="true"
+                            android:id="@+id/btnAll"
                             android:tint="@android:color/white"
                             app:backgroundTint="@color/orange_300"
                             app:fabSize="normal"

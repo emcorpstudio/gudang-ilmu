@@ -51,24 +51,26 @@ import java.util.List;
 import java.util.Map;
 
 import emcorp.studio.sinergienerginegeri.adapter.AdapterGridShopProductCard;
+import emcorp.studio.sinergienerginegeri.adapter.AdapterGridShopVideoCard;
 import emcorp.studio.sinergienerginegeri.model.Produk;
+import emcorp.studio.sinergienerginegeri.model.Video;
 import emcorp.studio.sinergienerginegeri.utils.Constant;
 import emcorp.studio.sinergienerginegeri.utils.SharedPrefManager;
 import emcorp.studio.sinergienerginegeri.utils.Tools;
 import emcorp.studio.sinergienerginegeri.widget.SpacingItemDecoration;
 
-public class ProductActivity extends AppCompatActivity {
+public class VideoActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
-    private List<Produk> items = new ArrayList<Produk>();
+    private List<Video> items = new ArrayList<Video>();
     private RecyclerView recyclerView;
-    private AdapterGridShopProductCard mAdapter;
-    private FloatingActionButton btn_add;
+    private AdapterGridShopVideoCard mAdapter;
+//    private FloatingActionButton btn_add;
     private Bitmap bitmapFoto = null;
     ImageView imgProduk;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product);
+        setContentView(R.layout.activity_video);
         initToolbar();
         LoadProcess();
     }
@@ -76,7 +78,7 @@ public class ProductActivity extends AppCompatActivity {
     private void initToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Produk");
+        getSupportActionBar().setTitle("Video");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Tools.setSystemBarColor(this);
     }
@@ -103,7 +105,7 @@ public class ProductActivity extends AppCompatActivity {
                             }else{
                                 for (int i=0; i<jsonArray.length(); i++) {
                                     JSONObject isiArray = jsonArray.getJSONObject(i);
-                                    String id_produk = isiArray.getString("id_produk");
+                                    String id_video = isiArray.getString("id_video");
                                     String id_user = isiArray.getString("id_user");
                                     String judul = isiArray.getString("judul");
                                     String deskripsi = isiArray.getString("deskripsi");
@@ -111,20 +113,20 @@ public class ProductActivity extends AppCompatActivity {
                                     String status = isiArray.getString("status");
                                     String created_at = isiArray.getString("created_at");
                                     String full_name = isiArray.getString("full_name");
-                                    String harga = isiArray.getString("harga");
+                                    String video_url = isiArray.getString("video");
 
-                                    Produk produk = new Produk();
-                                    produk.id_produk = id_produk;
-                                    produk.id_user = id_user;
-                                    produk.judul = judul;
-                                    produk.deskripsi = deskripsi;
-                                    produk.foto = foto;
-                                    produk.status = status;
-                                    produk.created_at = created_at;
-                                    produk.full_name = full_name;
-                                    produk.harga = harga;
+                                    Video video = new Video();
+                                    video.id_video = id_video;
+                                    video.id_user = id_user;
+                                    video.judul = judul;
+                                    video.deskripsi = deskripsi;
+                                    video.foto = foto;
+                                    video.status = status;
+                                    video.created_at = created_at;
+                                    video.full_name = full_name;
+                                    video.video = video_url;
 
-                                    items.add(produk);
+                                    items.add(video);
                                 }
                                 initComponent();
                             }
@@ -148,7 +150,7 @@ public class ProductActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("function", Constant.FUNCTION_LIST_PRODUK);
+                params.put("function", Constant.FUNCTION_LIST_VIDEO);
                 params.put("key", Constant.KEY);
                 params.put("id_user", "");
                 return params;
@@ -160,32 +162,32 @@ public class ProductActivity extends AppCompatActivity {
 
     private void initComponent() {
         recyclerView = findViewById(R.id.recyclerView);
-        btn_add = findViewById(R.id.fab_add);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-        recyclerView.addItemDecoration(new SpacingItemDecoration(2, Tools.dpToPx(this, 8), true));
+//        btn_add = findViewById(R.id.fab_add);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
+        recyclerView.addItemDecoration(new SpacingItemDecoration(1, Tools.dpToPx(this, 10), true));
         recyclerView.setHasFixedSize(true);
         recyclerView.setNestedScrollingEnabled(false);
 
         //set data and list adapter
-        mAdapter = new AdapterGridShopProductCard(this, items);
+        mAdapter = new AdapterGridShopVideoCard(this, items);
         recyclerView.setAdapter(mAdapter);
         // on item list clicked
-        mAdapter.setOnItemClickListener(new AdapterGridShopProductCard.OnItemClickListener() {
+        mAdapter.setOnItemClickListener(new AdapterGridShopVideoCard.OnItemClickListener() {
             @Override
-            public void onItemClick(View view, Produk obj, int pos) {
-                Intent intent = new Intent(getApplicationContext(), DetailProductActivity.class);
-                intent.putExtra("produk", obj);
-                intent.putExtra("from", "produk");
-                startActivity(intent);
+            public void onItemClick(View view, Video obj, int pos) {
+//                Intent intent = new Intent(getApplicationContext(), DetailProductActivity.class);
+//                intent.putExtra("video", obj);
+//                intent.putExtra("from", "video");
+//                startActivity(intent);
             }
         });
 
-        btn_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                addDonasi();
-            }
-        });
+//        btn_add.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                addDonasi();
+//            }
+//        });
     }
 
     private void addDonasi() {
@@ -208,7 +210,7 @@ public class ProductActivity extends AppCompatActivity {
         imgProduk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selectImage(ProductActivity.this);
+                selectImage(VideoActivity.this);
             }
         });
 
@@ -232,11 +234,11 @@ public class ProductActivity extends AppCompatActivity {
         dialog.getWindow().setAttributes(lp);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_cart_setting, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.menu_cart_setting, menu);
+//        return true;
+//    }
 
     public void AddProdukProcees(String judul, String deskripsi, String harga){
         StringRequest stringRequest = new StringRequest(
@@ -355,17 +357,17 @@ public class ProductActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(ProductActivity.this,HomeActivity.class));
+        startActivity(new Intent(VideoActivity.this,HomeActivity.class));
         finish();
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            startActivity(new Intent(ProductActivity.this,HomeActivity.class));
+            startActivity(new Intent(VideoActivity.this,HomeActivity.class));
             finish();
         }else {
-            startActivity(new Intent(ProductActivity.this,CheckoutActivity.class));
+            startActivity(new Intent(VideoActivity.this,CheckoutActivity.class));
             finish();
 //            Toast.makeText(getApplicationContext(), item.getTitle(), Toast.LENGTH_SHORT).show();
         }

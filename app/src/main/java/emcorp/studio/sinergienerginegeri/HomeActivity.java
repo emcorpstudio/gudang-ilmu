@@ -2,6 +2,7 @@ package emcorp.studio.sinergienerginegeri;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +27,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
@@ -54,6 +57,8 @@ public class HomeActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private List<Donation> items = new ArrayList<Donation>();
     private String saldo;
+    private FloatingActionButton btnElektronik,btnMotor,btnKabel,btnLampu,btnSafety,btnRumah,btnAll;
+    private LinearLayout btnPelajaran,btnBisnis,btnKeluarga,btnSemua;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -153,6 +158,17 @@ public class HomeActivity extends AppCompatActivity {
         tvLainVideo = findViewById(R.id.tvLainVideo);
         lyt_parent = findViewById(R.id.lyt_parent);
         recyclerView = findViewById(R.id.recyclerView);
+        btnElektronik = findViewById(R.id.btnElektronik);
+        btnMotor = findViewById(R.id.btnMotor);
+        btnKabel = findViewById(R.id.btnKabel);
+        btnLampu = findViewById(R.id.btnLampu);
+        btnSafety = findViewById(R.id.btnSafety);
+        btnRumah = findViewById(R.id.btnRumah);
+        btnAll = findViewById(R.id.btnAll);
+        btnPelajaran = findViewById(R.id.btnPelajaran);
+        btnBisnis = findViewById(R.id.btnBisnis);
+        btnKeluarga = findViewById(R.id.btnKeluarga);
+        btnSemua = findViewById(R.id.btnSemua);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         recyclerView.setNestedScrollingEnabled(false);
@@ -199,6 +215,103 @@ public class HomeActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        tvLainVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this,VideoActivity.class));
+                finish();
+            }
+        });
+
+        btnElektronik.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this,ProductActivity.class));
+                finish();
+            }
+        });
+
+        btnMotor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this,ProductActivity.class));
+                finish();
+            }
+        });
+
+        btnKabel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this,ProductActivity.class));
+                finish();
+            }
+        });
+
+        btnLampu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this,ProductActivity.class));
+                finish();
+            }
+        });
+
+        btnSafety.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this,ProductActivity.class));
+                finish();
+            }
+        });
+
+        btnRumah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this,ProductActivity.class));
+                finish();
+            }
+        });
+
+        btnAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this,ProductActivity.class));
+                finish();
+            }
+        });
+
+        btnPelajaran.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this,VideoActivity.class));
+                finish();
+            }
+        });
+
+        btnBisnis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this,VideoActivity.class));
+                finish();
+            }
+        });
+
+        btnKeluarga.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this,VideoActivity.class));
+                finish();
+            }
+        });
+
+        btnSemua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this,VideoActivity.class));
+                finish();
+            }
+        });
+
 
     }
 

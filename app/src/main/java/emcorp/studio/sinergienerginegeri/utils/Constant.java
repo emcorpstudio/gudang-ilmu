@@ -10,6 +10,7 @@ public class Constant {
     public static final String ROOT_URL = "http://192.168.100.62/project/gudang_ilmu/service/service.php";
     public static final String PICT_DONASI_URL = "http://192.168.100.62/project/gudang_ilmu/file/donasi/";
     public static final String PICT_PRODUK_URL = "http://192.168.100.62/project/gudang_ilmu/file/produk/";
+    public static final String PICT_VIDEO_URL = "http://192.168.100.62/project/gudang_ilmu/file/video/";
 
 
     public static final String WA_NUMBER = "6285158886758";
@@ -20,8 +21,10 @@ public class Constant {
     public static final String FUNCTION_LIST_DONASI = "ListDonasi";
     public static final String FUNCTION_DONASI = "Donasi";
     public static final String FUNCTION_ADDDONASI = "AddDonasi";
+    public static final String FUNCTION_ADDPRODUK = "AddProduk";
 
     public static final String FUNCTION_LIST_PRODUK = "ListProduk";
+    public static final String FUNCTION_LIST_VIDEO = "ListVideo";
 
     //Folder
     public static final String FOLDER_PROFILE = "profile/";
