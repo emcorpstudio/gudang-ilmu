@@ -7,10 +7,15 @@ public class Constant {
 
     //API
     public static final String KEY = "aplikasi-gudang-ilmu";
-    public static final String ROOT_URL = "http://192.168.100.62/project/gudang_ilmu/service/service.php";
-    public static final String PICT_DONASI_URL = "http://192.168.100.62/project/gudang_ilmu/file/donasi/";
-    public static final String PICT_PRODUK_URL = "http://192.168.100.62/project/gudang_ilmu/file/produk/";
-    public static final String PICT_VIDEO_URL = "http://192.168.100.62/project/gudang_ilmu/file/video/";
+//    public static final String ROOT_URL = "http://192.168.100.62/project/gudang_ilmu/service/service.php";
+//    public static final String PICT_DONASI_URL = "http://192.168.100.62/project/gudang_ilmu/file/donasi/";
+//    public static final String PICT_PRODUK_URL = "http://192.168.100.62/project/gudang_ilmu/file/produk/";
+//    public static final String PICT_VIDEO_URL = "http://192.168.100.62/project/gudang_ilmu/file/video/";
+
+    public static final String ROOT_URL = "https://service.emcorpstudio.com/gudangilmu/service/service.php";
+    public static final String PICT_DONASI_URL = "https://service.emcorpstudio.com/gudangilmu/file/donasi/";
+    public static final String PICT_PRODUK_URL = "https://service.emcorpstudio.com/gudangilmu/file/produk/";
+    public static final String PICT_VIDEO_URL = "https://service.emcorpstudio.com/gudangilmu/file/video/";
 
 
     public static final String WA_NUMBER = "6285158886758";
